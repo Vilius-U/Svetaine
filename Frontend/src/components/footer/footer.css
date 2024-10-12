@@ -1,0 +1,18 @@
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-block: 50px;
+    transition: 0.3s;
+    z-index: -4;
+}
+footer .container {
+    display: flex;
+    justify-content: space-around;
+    width: 1280px;
+    margin: auto;
+}
+footer a {
+    color: white;
+}

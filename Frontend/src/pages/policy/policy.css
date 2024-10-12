@@ -1,0 +1,22 @@
+.policy {
+    width: 1280px;
+    height: 100%;
+    margin: auto;
+}
+.policy .container {
+    padding-inline: 15px;
+}
+.policy .container h1 {
+    text-align: center;
+}
+@media only screen and (max-width: 1280px) {
+    .policy {
+        width: 100%;
+    }
+ }
+ @media only screen and (max-width: 780px) {
+    .policy {
+        position: relative;
+        padding-top: 100px;
+    }
+ }

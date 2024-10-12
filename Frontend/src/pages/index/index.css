@@ -1,0 +1,888 @@
+.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 1s;
+}
+
+.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.show .hidden:nth-child(1) {
+    transition-delay: 200ms;
+}
+
+.show .hidden:nth-child(2) {
+    transition-delay: 400ms;
+}
+
+.show .hidden:nth-child(3) {
+    transition-delay: 600ms;
+}
+
+.show .hidden:nth-child(4) {
+    transition-delay: 800ms;
+}
+
+.requisite1 {
+    transition-delay: 150ms;
+}
+
+.requisite2 {
+    transition-delay: 150ms;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+    margin: 0;
+    transition: 0.3s;
+    font-family: sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+hr {
+    color: #3B83FF;
+    background-color: #3b83ffd5;
+    border: 0;
+    height: 5px;
+    border-radius: 100px;
+}
+
+main {
+    margin: auto;
+}
+
+main .solarImg {
+    z-index: 0;
+    width: 100%;
+    height: 700px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+main img {
+    object-fit: cover;
+    width: 100%;
+    height: 700px;
+}
+
+main .solarImg .textsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+main .solarImg .textsContainer .texts {
+    position: relative;
+    left: 0px;
+    animation: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    width: 1280px;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+@keyframes slide {
+    0% {
+        left: -200px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+main .solarImg .textsContainer .texts h1 {
+    display: flex;
+    margin: 0;
+}
+
+main .solarImg .textsContainer .texts h1 div {
+    position: relative;
+    left: 10px;
+    color: #3B84FF;
+}
+
+main .solarImg .textsContainer .texts button {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    outline: 0;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+main .solarImg .textsContainer .texts button .text {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main .solarImg .textsContainer .texts button hr {
+    color: #3B83FF;
+    background-color: #3B83FF;
+    height: 3px;
+    width: 100%;
+}
+
+main .solarImg .textsContainer .bottomTexts {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+    width: 1280px;
+}
+
+main .solarImg .textsContainer .bottomTexts hr {
+    color: white;
+    background-color: white;
+    border: 0;
+    height: 1px;
+    border-radius: 100px;
+    width: 30%;
+}
+
+main .solarImg .textsContainer .bottomTexts .bottomContainer {
+    display: flex;
+    align-items: center;
+    width: 35%;
+    padding-bottom: 50px;
+}
+
+main .solarImg .textsContainer .bottomTexts .bottomContainer p {
+    margin: 0;
+}
+
+main article {
+    padding-block: 40px;
+    width: 1280px;
+    margin: auto;
+}
+
+main article .services {
+    top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+main article .services h1 {
+    text-align: center;
+    background-color: white;
+    width: 300px;
+    margin: auto;
+    z-index: 1;
+}
+
+main article .services hr {
+    position: absolute;
+    width: 100%;
+}
+
+main .icons {
+    padding-block: 50px;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    height: 500px;
+    margin: auto;
+}
+
+main .icons .container {
+    transform-style: preserve-3d;
+    transform-origin: center;
+}
+
+main .icons .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 3s ease;
+}
+
+main .icons .card .front {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: center;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0px;
+    transform: rotateY(0deg) translateZ(100px);
+    transition: all 3s ease;
+}
+
+main .icons .card .design {
+    top: 0;
+    left: 0;
+    transition: all 3s ease;
+    position: absolute;
+    transform-style: preserve-3d;
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 15px;
+    border-top: #3B83FF 5px solid;
+    background-color: white;
+    box-shadow: 0px 0px 7px 7px rgb(0, 0, 0, 0.2);
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+main .icons .card .back {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    transform: rotateY(-180deg) translateZ(0px);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    pointer-events: none;
+    border-radius: 15px;
+    transition: all 3s ease;
+}
+main .icons .card .back hr {
+    width: 90%;
+    color: #3B83FF;
+    background-color: #3B83FF;
+    height: 3px;
+    border-radius: 100px;
+}
+main .icons .card .back .photos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 80%;
+}
+main .icons .card .back .photos img {
+    width: 100%;
+    height: 100px;
+    object-fit:scale-down;
+}
+@supports (-ms-ime-align: auto) {
+    .card .back .photos img {
+          height: 120px;
+    }
+  }
+main .icons .container:hover .front {
+    transform: rotateY(180deg) translateZ(0px);
+}
+
+main .icons .container:hover .design {
+    transform: rotateY(180deg) translateZ(0px);
+}
+
+main .icons .container:hover .back {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+
+
+main .icons .card h2 {
+    width: 100%;
+}
+
+main .icons .card ul {
+    margin-block: auto;
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+}
+
+main .icons .iconContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .icons .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 40px;
+    outline: 1px solid;
+    border-radius: 100%;
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+}
+
+main .contact {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+main .contact img {
+    object-fit: cover;
+    width: 100%;
+    height: 700px;
+}
+
+main .contact .texts2 {
+    background-color: rgb(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50.3%);
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main .contact .texts2 .background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(46, 46, 46, 0.5);
+    width: 400px;
+    height: 500px;
+}
+
+main .contact .texts2 form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+}
+
+main .contact .texts2 form div {
+    font-size: 20px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+main .contact .texts2 form .icon {
+    left: -25px;
+    position: absolute;
+}
+
+main .contact .texts2 form .last {
+    align-items: baseline;
+}
+
+main .contact .texts2 form input {
+    background-color: transparent;
+    width: 100%;
+    border: 0px;
+    padding: 5px;
+    border-bottom-width: 1px;
+    border-bottom: 1px solid transparent;
+    color: white;
+    transition: 0.3s;
+}
+main .contact .texts2 form .checkbox {
+    width: 100%;
+}
+main .contact .texts2 form .checkbox input {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+}
+main .contact .texts2 form .checkbox label{
+    font-size: 17px;
+    gap: 7px;
+    display: flex;
+}
+main .contact .texts2 form .checkbox label a {
+    color: white;
+}
+main .contact .texts2 form input:focus {
+    outline: 0px;
+    border-bottom: 1px solid white;
+}
+
+main .contact .texts2 form textarea {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    transition: 0.3s;
+    width: 100%;
+    height: 100px;
+resize: none;
+}
+
+main .contact .texts2 form textarea:focus {
+    outline: 0px;
+    border: 1px solid white;
+}
+
+main .contact .texts2 form button {
+    width: 100%;
+    transition: 0.5s;
+    background-color: transparent;
+    outline: 0;
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+    padding-inline: 30px;
+    padding-block: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+main .contact .texts2 form button:hover {
+    background-color: white;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+main .information {
+    padding-block: 50px;
+    width: 1280px;
+    margin: auto;
+}
+
+main .information .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+main .information .title hr {
+    position: absolute;
+    width: 100%;
+}
+
+main .information .title h1 {
+    text-align: center;
+    background-color: white;
+    width: 300px;
+    margin: auto;
+    z-index: 1;
+}
+
+main .information .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+main .information .info div {
+    text-align: center;
+    padding: 15px;
+}
+
+main .information .info div a {
+    color: black;
+    text-decoration: none;
+}
+
+main .milestones {
+    background-image: url(./pattern.jpg);
+    background-size: cover;
+}
+
+main .milestones .container {
+    display: flex;
+    padding-block: 45px;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+}
+
+main .milestones .container .stats {
+    width: 1280px;
+    display: grid;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+main .milestones .container .stats div {
+    text-align: center;
+    display: flex;
+}
+
+main .milestones .container .stats div h2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+main .workflow {
+    width: 1280px;
+    margin: auto;
+}
+
+main .workflowTitle .title {
+    top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+main .workflowTitle .title h1 {
+    text-align: center;
+    background-color: white;
+    width: 300px;
+    margin: auto;
+    z-index: 1;
+}
+
+main .workflowTitle .title hr {
+    position: absolute;
+    width: 100%;
+}
+
+main .workflow .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+main .workflow .container:nth-child(3) {
+    justify-content: space-between;
+
+    img {
+        position: relative;
+        bottom: 50px;
+        left: 100px;
+        transform: scaleX(-1);
+        width: 500px;
+        height: 500px;
+    }
+}
+
+main .workflow .container:nth-child(4) img {
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+    transform: scaleX(1);
+    width: 500px;
+    height: 500px;
+}
+
+main .workflow .container:nth-child(5) {
+    justify-content: right;
+
+    img {
+        position: relative;
+        bottom: 70px;
+        right: 200px;
+        transform: scaleX(-1);
+        width: 500px;
+        height: 500px;
+    }
+}
+
+main .workflow .container .texts {
+    width: 500px;
+
+}
+
+main .workflow .container .texts .number {
+    font-size: 60px;
+    color: #3B83FF;
+    margin: 0;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1280px) {
+
+    body {
+        width: 100%;
+    }
+
+    /* TOP */
+
+    main .solarImg .textsContainer {
+        width: 100%;
+    }
+
+    main .solarImg .textsContainer .texts {
+        width: 90%;
+    }
+
+    main .solarImg .textsContainer .bottomTexts {
+        width: 90%;
+    }
+
+    main .solarImg .textsContainer .bottomTexts .bottomContainer {
+        width: 400px;
+    }
+
+    /* ICONS */
+
+    .show .hidden:nth-child(1) {
+        transition-delay: 0ms;
+    }
+    
+    .show .hidden:nth-child(2) {
+        transition-delay: 0ms;
+    }
+    
+    .show .hidden:nth-child(3) {
+        transition-delay: 0ms;
+    }
+    
+    .show .hidden:nth-child(4) {
+        transition-delay: 0ms;
+    }
+
+    main article {
+        width: 97%;
+        height: 1000px;
+    }
+
+    main .icons {
+        grid-template-columns: 1fr 1fr;
+        height: 500px;
+        margin: auto;
+    }
+
+    main .icons .container {
+        margin: auto;
+        width: 300px;
+    }
+
+    main .icons .card {
+        height: 450px;
+    }
+
+    /* REQUISITES */
+
+    main .information {
+        width: 97%;
+    }
+
+    /* WORKFLOW */
+
+    main .workflow {
+        width: 97%;
+        margin: auto;
+    }
+
+    main .workflowTitle .title {
+        top: 10px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    main .workflowTitle .title h1 {
+        text-align: center;
+        background-color: white;
+        width: 300px;
+        margin: auto;
+        z-index: 1;
+    }
+
+    main .workflowTitle .title hr {
+        position: absolute;
+        width: 100%;
+    }
+
+    main .workflow .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+
+    main .workflow .container:nth-child(3) {
+        justify-content: space-between;
+
+        img {
+            left: 5%;
+            width: 30%;
+            height: 50%;
+            object-fit: contain;
+        }
+    }
+
+    main .workflow .container:nth-child(4) img {
+        margin: auto;
+        left: 0%;
+        width: 30%;
+        height: 50%;
+        object-fit: contain;
+    }
+
+    main .workflow .container:nth-child(5) {
+        justify-content: right;
+
+        img {
+            left: -5%;
+            width: 30%;
+            height: 50%;
+            object-fit: contain;
+        }
+    }
+
+    main .workflow .container .texts {
+        width: 500px;
+
+    }
+
+    main .workflow .container .texts .number {
+        font-size: 60px;
+        color: #3B83FF;
+        margin: 0;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (max-width: 780px) {
+
+    
+}
+
+
+
+@media only screen and (max-width: 660px) {
+
+    /* TOP */
+
+    main .solarImg .textsContainer .texts h1{
+        font-size: 25px;
+    }
+    main .solarImg .textsContainer .texts h1 div {
+        text-shadow: #ffffff97 0px 0px 10px;
+    }
+
+    /* ICONS */
+
+    main article .services h1 {
+        width: 55%;
+    }
+    main .icons {
+        grid-template-columns: 1fr;
+    }
+    main .icons .container:hover .front {
+        transform: rotateY(0deg) translateZ(0px);
+    }
+    main .icons .container:hover .design {
+        transform: rotateY(0deg) translateZ(1px);
+    }   
+    main .icons .container:hover .back {
+        transform: rotateY(-180deg) translateZ(0px);
+    }
+
+    main .icons .container .swipedFront {
+        transform: rotateY(180deg) translateZ(0px);
+      }
+      
+      main .icons .container .swipedDesign {
+        transform: rotateY(180deg) translateZ(0px);
+      }
+      
+      main .icons .container .swipedBack {
+        transform: rotateY(0deg) translateZ(100px);
+      }
+
+    main article {
+        height: 2000px;
+    }
+
+    /* FORM */
+
+    main .contact .texts2 .background {
+        width: 90%;
+    }
+
+    main .contact .texts2 .background h2 {
+        text-align: center;
+    }
+
+    main .contact .texts2 form {
+        width: 80%;
+    }
+
+    /* REQUISITES */
+
+    main .information .title h1 {
+        width: 55%;
+    }
+
+    main .information .info {
+        grid-template-columns: 1fr;
+    }
+
+    /* MILESTONES */
+
+    main .milestones .container .stats {
+        grid-template-columns: 1fr;
+
+    }
+
+    /* WORKFLOW */
+    main .workflow .container img {
+        display: none;
+    }
+
+    main .workflow .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+
+}
