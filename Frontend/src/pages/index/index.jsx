@@ -46,9 +46,9 @@ import { BsLightningCharge } from "react-icons/bs";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { PiCity } from "react-icons/pi";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { BsInfoCircleFill } from "react-icons/bs";
 
 function Indexes({ setErrors, loading, loading2 }) {
-
   const [viewed, setViewed] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0); // Initialize scroll position state with 0
   const contentRef = useRef(null);
@@ -60,6 +60,7 @@ function Indexes({ setErrors, loading, loading2 }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [message, setMessage] = useState('');
+  const [visible, setVisible] = useState('');
 
   const [cards, setCards] = useState([
     { id: 1, swiped: false },
@@ -69,13 +70,9 @@ function Indexes({ setErrors, loading, loading2 }) {
   ]);
 
   const touchStartX = useRef(0);
-
-  // Handle swipe start (for touch devices)
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
-
-  // Handle swipe end and detect left swipe
   const handleTouchEnd = (e, id) => {
     const touchEndX = e.changedTouches[0].clientX;
     const swipeDistance = touchStartX.current - touchEndX;
@@ -110,6 +107,8 @@ function Indexes({ setErrors, loading, loading2 }) {
       });
     });
 
+
+
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
@@ -119,9 +118,72 @@ function Indexes({ setErrors, loading, loading2 }) {
     };
   }, []);
 
+
+
+//   const useElementOnScreen = (options) => {
+//     const containerRef = useRef(null);
+//     const containerRef2 = useRef(null);
+//     const containerRef3 = useRef(null);
+//     const containerRef4 = useRef(null);
+
+//     const [isVisible, setIsVisible] = useState(false);
+//     const [isVisible2, setIsVisible2] = useState(false);
+//     const [isVisible3, setIsVisible3] = useState(false);
+//     const [isVisible4, setIsVisible4] = useState(false);
+
+//     const callbackFunction = (entries) => {
+//         const [entry] = entries;
+//         setIsVisible(entry.isIntersecting);
+//     };
+
+//     const callbackFunction2 = (entries) => {
+//         const [entry] = entries;
+//         setIsVisible2(entry.isIntersecting);
+//     };
+
+//     const callbackFunction3 = (entries) => {
+//         const [entry] = entries;
+//         setIsVisible3(entry.isIntersecting);
+//     };
+
+//     const callbackFunction4 = (entries) => {
+//         const [entry] = entries;
+//         setIsVisible4(entry.isIntersecting);
+//     };
+
+//     useEffect(() => {
+//         const observer = new IntersectionObserver(callbackFunction, options);
+//         const observer2 = new IntersectionObserver(callbackFunction2, options);
+//         const observer3 = new IntersectionObserver(callbackFunction3, options);
+//         const observer4 = new IntersectionObserver(callbackFunction4, options);
+
+//         if (containerRef.current) observer.observe(containerRef.current);
+//         if (containerRef2.current) observer2.observe(containerRef2.current);
+//         if (containerRef3.current) observer3.observe(containerRef3.current);
+//         if (containerRef4.current) observer4.observe(containerRef4.current);
+
+//         return () => {
+//             if (containerRef.current) observer.unobserve(containerRef.current);
+//             if (containerRef2.current) observer2.unobserve(containerRef2.current);
+//             if (containerRef3.current) observer3.unobserve(containerRef3.current);
+//             if (containerRef4.current) observer4.unobserve(containerRef4.current);
+//         };
+//     }, [containerRef, containerRef2, containerRef3, containerRef4, options]);
+
+//     return [containerRef, containerRef2, containerRef3, containerRef4, isVisible, isVisible2, isVisible3, isVisible4];
+// };
+
+// const [containerRef, containerRef2, containerRef3, containerRef4, isVisible, isVisible2, isVisible3, isVisible4] = useElementOnScreen({
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5,
+// });
+
+
   let counter = 0;
   let counter2 = 0;
   let counter3 = 0;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -176,19 +238,18 @@ function Indexes({ setErrors, loading, loading2 }) {
     }
   }, [scrollPosition]); // Re-run effect whenever scrollPosition changes
 
-  const slideLeft = () => {
-    setScrollPosition(prevPosition => {
-      // Calculate the new scroll position
-      const newScrollPosition = prevPosition - contentRef.current.clientWidth; // Decrease scroll position by 200 pixels
-
-      // Ensure the new scroll position doesn't go below 0
-      return Math.max(newScrollPosition, 0);
-    });
-  };
 
   function sendMail(event) {
     event.preventDefault();
-    console.log(name, email, number, message);
+
+    if (!name || !email || !number || !message) {
+      setErrors(prevErrors => [...prevErrors, { message: "Užpildykite visus laukus", isFadingOut: false, type: "error" }]);
+      return;
+    }
+    else if (ReactSession.get('sent')) {
+      setErrors(prevErrors => [...prevErrors, { message: "Užklausa jau išsiusta", isFadingOut: false, type: "error" }]);
+      return;
+    }
 
     const request = {
       method: 'POST',
@@ -198,27 +259,33 @@ function Indexes({ setErrors, loading, loading2 }) {
 
     fetch('/main/mail', request).then((response) => {
       if (response.ok) {
+        setErrors(prevErrors => [...prevErrors, { message: "Užklausa sėkmingai išsiusta! Susiesiksime su jumis artimiausiu laiku", isFadingOut: false, title: "Užklausa išsiusta", type: "success" }]);
+        ReactSession.set('sent', true);
         return response.json();
+      } else {
+        setErrors(prevErrors => [...prevErrors, { message: "Nepavyko išsiusti užklausos, bandykite dar kartą vėliau", isFadingOut: false, type: "error" }]);
       }
-      throw new Error('Request failed');
-    }).then((data) => {
-      console.log(data);
-      window.location.reload();
     }).catch((error) => {
-      console.log(error);
+      setErrors(prevErrors => [...prevErrors, { message: "Nepavyko išsiusti užklausos, bandykite dar kartą vėliau", isFadingOut: false, type: "error" }]);
     });
   }
 
   return (
     <div className="App">
+      {/* <div className='locations'>
+        <div className={`location ${isVisible ? "viewed" : ""}`}><div className='container'><p className='word'>Paslaugos</p></div></div>
+        <div className={`location ${isVisible2 ? "viewed" : ""}`}><div className='container'><p className='word'>Susisiekime</p></div></div>
+        <div className={`location ${isVisible3 ? "viewed" : ""}`}><div className='container'><p className='word'>Rekvizitai</p></div></div>
+        <div className={`location ${isVisible4 ? "viewed" : ""}`}><div className='container'><p className='word'>Darbo eiga</p></div></div>
+      </div> */}
       <main>
         <div className='solarImg'>
           <img src={solarPanel} alt="solar" />
           <div className='textsContainer'>
             <div className='texts'>
-              <h1>Ne problema, <div>įdiegsime!</div></h1>
-              <h1>Moderniausi įrangos instaliavimo sprendimai</h1>
-              <button onClick={scrollMeet2}><h3 className='text'>Susisiekime <FaArrowRightLong /></h3>
+              <h1 className='hidden'>Ne problema, <div>įdiegsime!</div></h1>
+              <h1 className='hidden'>Moderniausi įrangos instaliavimo sprendimai</h1>
+              <button className='hidden' onClick={scrollMeet2}><h3 className='text'>Susisiekime <FaArrowRightLong /></h3>
                 <hr />
               </button>
 
@@ -239,7 +306,7 @@ function Indexes({ setErrors, loading, loading2 }) {
             <h1>Mūsų paslaugos</h1>
             <hr />
           </div>
-          <div className='icons hidden'>
+          <div className='icons'>
 
 
             <div
@@ -402,10 +469,13 @@ function Indexes({ setErrors, loading, loading2 }) {
         </article>
 
         <div id='contact' className='contact'>
-          <img src={city} alt="" />
           <div className='texts2'>
             <div className='background'>
               <h2>Nedelskite! Susisiekim dabar!</h2>
+              <div className='informationSend'>
+                <BsInfoCircleFill className='iconCircle' />
+                <p>Gavę jūsų prašymą, susisieksime su jumis, kai būsime pasiekiami darbo dienomis.</p>
+              </div>
               <form onSubmit={sendMail}>
                 <div>
                   <CiUser className='icon' />
@@ -421,11 +491,11 @@ function Indexes({ setErrors, loading, loading2 }) {
                 </div>
                 <div className='last'>
                   <LiaComment className='icon' />
-                  <textarea required onChange={(e) => setMessage(e.target.value)} name="" id="" cols="30" rows="10" placeholder='Paslaugos aprašymas'></textarea>
+                  <textarea onChange={(e) => setMessage(e.target.value)} name="" id="" cols="30" rows="10" placeholder='Paslaugos aprašymas'></textarea>
                 </div>
                 <div className='checkbox'>
-                  <input type="checkbox" required />
-                  <label htmlFor="checkbox">Aš sutinku su <NavLink to="/Privatumo-politika">privatumo politiką</NavLink></label>
+                  <input required id='checkbox2' type="checkbox" />
+                  <label htmlFor="checkbox2">Aš sutinku su <NavLink to="/Privatumo-politika">privatumo politiką</NavLink></label>
                 </div>
                 <button type='submit'>Siusti</button>
               </form>
@@ -462,7 +532,7 @@ function Indexes({ setErrors, loading, loading2 }) {
             </div>
           </div>
         </div>
-        <div className='milestones'>
+        <div className='milestones' >
           <div className='container'>
             <div className='stats counter'>
               <div className='hidden'>
@@ -485,7 +555,7 @@ function Indexes({ setErrors, loading, loading2 }) {
           </div>
         </div>
         <div className='workflow'>
-          <div className='workflowTitle'>
+          <div  className='workflowTitle'>
             <div className='title'>
               <h1>Darbo eiga</h1>
               <hr />

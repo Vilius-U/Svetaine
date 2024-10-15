@@ -24,13 +24,15 @@ function Indexes({ setErrors, loading, loading2 }) {
         <div className="policy">
             <div className='container'>
                 <h1>Privatumo politika</h1>
-                <h2>1. Bendra informacija</h2>
+                <h2>
+                    <div className='number'> 1.</div> Bendra informacija
+                </h2>
 
                 <p>
                     Ši privatumo politika paaiškina, kaip tvarkome jūsų asmeninę informaciją, kurią pateikiate mūsų svetainėje. Mūsų svetainėje yra kontaktinė forma, kurioje prašome pateikti jūsų vardą, telefono numerį ir el. pašto adresą. Ši informacija naudojama tam, kad galėtume perduoti jūsų užklausą darbuotojui, kuris susisieks su jumis dėl jūsų užklausos.
                 </p>
                 <h2>
-                    2. Kokius duomenis renkame?
+                    <div className='number'> 2.</div> Kokius duomenis renkame?
                 </h2>
                 <p>
                     Naudodamiesi mūsų svetaine, jūs pateikiate šią informaciją:
@@ -42,7 +44,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     Ši informacija yra renkama tik per kontaktinę formą ir nėra renkama automatiškai ar kitaip stebima naršant svetainėje.
                 </p>
                 <h2>
-                    3. Kaip naudojame jūsų duomenis?
+                    <div className='number'> 3.</div> Kaip naudojame jūsų duomenis?
                 </h2>
                 <p>
                     Surinktus asmens duomenis naudojame šiais tikslais:
@@ -56,7 +58,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     Mes nenaudosime jūsų duomenų reklamos tikslais, neperduosime jų trečiosioms šalims be jūsų sutikimo, išskyrus atvejus, kai tai yra būtina teisiniams reikalavimams įvykdyti.
                 </p>
                 <h2>
-                    4. Duomenų saugumas
+                    <div className='number'> 4.</div> Duomenų saugumas
                 </h2>
 
                 <p>
@@ -64,13 +66,13 @@ function Indexes({ setErrors, loading, loading2 }) {
                 </p>
 
                 <h2>
-                    5. Kiek laiko saugome jūsų duomenis?
+                    <div className='number'> 5.</div> Kiek laiko saugome jūsų duomenis?
                 </h2>
                 <p>
                     Jūsų asmens duomenis saugosime tik tiek laiko, kiek būtina tam tikslui, dėl kurio jie buvo surinkti, pasiekti arba tiek, kiek reikalauja teisės aktai. Jei jūsų užklausa išspręsta, jūsų duomenys bus ištrinti arba anonimizuoti.
                 </p>
                 <h2>
-                    6. Jūsų teisės
+                    <div className='number'> 6.</div> Jūsų teisės
                 </h2>
                 <p>
                     Jūs turite teisę:
@@ -86,7 +88,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     Jei norite pasinaudoti savo teisėmis arba turite klausimų apie tai, kaip tvarkome jūsų asmens duomenis, susisiekite su mumis naudodamiesi el. pašto adresu: [įmonės el. paštas].
                 </p>
                 <h2>
-                    7. Kontaktai
+                    <div className='number'> 7.</div> Kontaktai
                 </h2>
                 <p>
                     Jei turite klausimų apie šią privatumo politiką ar norite daugiau informacijos apie jūsų duomenų tvarkymą, galite susisiekti su mumis:
@@ -96,7 +98,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     <li>Telefonas: [įmonės telefono numeris]</li>
                 </ul>
                 <h2>
-                    8. Privatumo politikos pakeitimai
+                    <div className='number'> 8.</div> Privatumo politikos pakeitimai
                 </h2>
                 <p>
                     Šią privatumo politiką galime periodiškai keisti. Visus pakeitimus paskelbsime šioje svetainėje, todėl rekomenduojame reguliariai tikrinti šią politiką.

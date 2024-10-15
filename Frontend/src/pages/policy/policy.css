@@ -7,7 +7,15 @@
     padding-inline: 15px;
 }
 .policy .container h1 {
+    color: #3B83FF;
     text-align: center;
+}
+.policy .container h2 {
+    display: flex;
+    gap: 10px;
+}
+.policy .container div {
+    color: #3B83FF;    
 }
 @media only screen and (max-width: 1280px) {
     .policy {
@@ -17,6 +25,11 @@
  @media only screen and (max-width: 780px) {
     .policy {
         position: relative;
-        padding-top: 100px;
+        padding-top: 1px;
     }
  }
+ @media only screen and (max-width: 660px) {
+    .policy {
+        padding-top: 85.33333px;
+    }
+  }

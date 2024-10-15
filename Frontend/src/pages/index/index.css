@@ -9,20 +9,17 @@
     opacity: 1;
 }
 
-.show .hidden:nth-child(1) {
+
+.icons .hidden:nth-child(2)       {
     transition-delay: 200ms;
 }
 
-.show .hidden:nth-child(2) {
+.icons .hidden:nth-child(3) {
     transition-delay: 400ms;
 }
 
-.show .hidden:nth-child(3) {
+.icons .hidden:nth-child(4) {
     transition-delay: 600ms;
-}
-
-.show .hidden:nth-child(4) {
-    transition-delay: 800ms;
 }
 
 .requisite1 {
@@ -51,13 +48,62 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-hr {
+.App hr {
     color: #3B83FF;
     background-color: #3b83ffd5;
     border: 0;
     height: 5px;
     border-radius: 100px;
 }
+
+.locations {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    justify-content: center;
+    gap: 10px;
+    right: 0;
+    height: 350px; /* Use 100vh to take up the full height of the screen */
+    z-index: 4;
+    position: fixed; /* Position it relative to the viewport */
+}
+.locations .location {
+    transition: 0.3s;
+    opacity: 0.3;
+    padding: 10px 0px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    height: 50px;
+    border-radius: 300px 0% 0% 300px;
+}
+.locations .location:hover {
+    width: 150px;
+    opacity: 1;
+    .word {
+        width: 100%;
+    }
+    .letter {
+        width: 100%;
+    }
+}
+.locations .viewed {
+    opacity: 1;
+}
+.locations .location .container {
+
+}
+.locations .location .word {
+    color: black;
+    white-space: nowrap;
+    margin: 0;    
+    width: 100%;
+    padding: 10px;
+    transition: 0.3s;
+}
+
 
 main {
     margin: auto;
@@ -93,9 +139,6 @@ main .solarImg .textsContainer {
 main .solarImg .textsContainer .texts {
     position: relative;
     left: 0px;
-    animation: slide;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
     width: 1280px;
     margin: auto;
     display: flex;
@@ -105,15 +148,7 @@ main .solarImg .textsContainer .texts {
     color: white;
 }
 
-@keyframes slide {
-    0% {
-        left: -200px;
-    }
 
-    100% {
-        left: 0px;
-    }
-}
 
 main .solarImg .textsContainer .texts h1 {
     display: flex;
@@ -245,7 +280,7 @@ main .icons .card .front {
     align-items: center;
     text-align: center;
     padding: 10px 0px;
-    transform: rotateY(0deg) translateZ(100px);
+    transform: rotateY(0deg) translateZ(50px);
     transition: all 3s ease;
 }
 
@@ -310,7 +345,7 @@ main .icons .card .back .photos img {
     }
   }
 main .icons .container:hover .front {
-    transform: rotateY(180deg) translateZ(0px);
+    transform: rotateY(180deg) translateZ(50px);
 }
 
 main .icons .container:hover .design {
@@ -362,20 +397,18 @@ main .contact {
     position: relative;
 }
 
-main .contact img {
+/* main .contact img {
     object-fit: cover;
     width: 100%;
     height: 700px;
-}
+} */
 
 main .contact .texts2 {
-    background-color: rgb(0, 0, 0, 0.5);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50.3%);
-    width: 100%;
-    height: 700px;
+    border-radius: 50px;
+    background-color: #3B83FF;
+    width: 95%;
+    margin: auto;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -390,17 +423,53 @@ main .contact .texts2 .background {
     align-items: center;
     backdrop-filter: blur(3px);
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 5px rgba(46, 46, 46, 0.5);
+    border-block: 5px solid white;
     width: 400px;
     height: 500px;
 }
-
+main .contact .texts2 .background .informationSend {
+    display: flex;
+    justify-content: right;
+    flex-direction: row-reverse;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+}
+main .contact .texts2 .background .informationSend .iconCircle {
+    padding: 5px 6px 0px 0px;
+    font-size: 20px;
+}
+main .contact .texts2 .background .informationSend .iconCircle:hover ~ p {
+    opacity: 1;
+    width: 150px;
+    height: 100px;
+    pointer-events: all;
+    padding-inline: 15px;
+    transition: padding-inline 0.3s 0ms, height 0.5s 500ms, width 0.5s;
+}
+main .contact .texts2 .background .informationSend p {
+    padding-top: 4px;
+    padding-bottom: 10px;
+    font-weight:600;
+    overflow: hidden;
+    background-color: white;
+    color: #3B83FF;
+    width: 35%;
+    white-space: initial;
+    height: 0px;
+    width: 0px;
+    margin: 5;
+    border-radius: 10px 0px 10px 10px;
+    pointer-events: none;
+    transition: 0.3s;
+    transition:padding-inline 0.3s 500ms , height 0.3s 0ms, width 0.3s 500ms;
+}
 main .contact .texts2 form {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 300px;
+    width: 90%;
 }
 
 main .contact .texts2 form div {
@@ -431,6 +500,7 @@ main .contact .texts2 form input {
 }
 main .contact .texts2 form .checkbox {
     width: 100%;
+    white-space: nowrap;
 }
 main .contact .texts2 form .checkbox input {
     margin: 0;
@@ -440,7 +510,7 @@ main .contact .texts2 form .checkbox input {
     height: 15px;
 }
 main .contact .texts2 form .checkbox label{
-    font-size: 17px;
+    font-size: 15px;
     gap: 7px;
     display: flex;
 }
@@ -532,14 +602,15 @@ main .information .info div a {
 }
 
 main .milestones {
-    background-image: url(./pattern.jpg);
-    background-size: cover;
+    border-radius: 50px;
+    background-color: #3B83FF;
+    width: 95%;
+    margin: auto;
 }
 
 main .milestones .container {
     display: flex;
     padding-block: 45px;
-    background-color: rgb(0, 0, 0, 0.5);
     color: white;
 }
 
@@ -565,6 +636,7 @@ main .milestones .container .stats div h2 {
 
 main .workflow {
     width: 1280px;
+    overflow: hidden;
     margin: auto;
 }
 
@@ -815,7 +887,7 @@ main .workflow .container .texts .number {
         grid-template-columns: 1fr;
     }
     main .icons .container:hover .front {
-        transform: rotateY(0deg) translateZ(0px);
+        transform: rotateY(0deg) translateZ(50px);
     }
     main .icons .container:hover .design {
         transform: rotateY(0deg) translateZ(1px);
@@ -825,7 +897,7 @@ main .workflow .container .texts .number {
     }
 
     main .icons .container .swipedFront {
-        transform: rotateY(180deg) translateZ(0px);
+        transform: rotateY(180deg) translateZ(50px);
       }
       
       main .icons .container .swipedDesign {
@@ -837,7 +909,7 @@ main .workflow .container .texts .number {
       }
 
     main article {
-        height: 2000px;
+        height: 2040px;
     }
 
     /* FORM */
@@ -876,6 +948,11 @@ main .workflow .container .texts .number {
         display: none;
     }
 
+    main .workflow .container .texts {
+        width: 100%;
+
+    }
+
     main .workflow .container {
         display: flex;
         flex-direction: column;
@@ -883,6 +960,7 @@ main .workflow .container .texts .number {
         justify-content: center;
         text-align: center;
     }
-    
-
+    main .contact .texts2 .background .informationSend .iconCircle:hover ~ p {
+        height: 170px;
+    }
 }

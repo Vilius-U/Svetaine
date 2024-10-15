@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
+import { BrowserRouter, Router, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group';
 import Indexes from './pages/index/index';
 import Policy from './pages/policy/policy';
@@ -37,12 +37,38 @@ function App({ in: inProp }) {
     }
   }, [location, navigationType]);
 
-
+  function ScrollDelay() {
+    const location = useLocation();
+    const scrollPositionRef = useRef(0); // Store scroll position before navigation
   
+    useEffect(() => {
+      const handlePopState = (event) => {
+        // Store the current scroll position before navigation occurs
+        scrollPositionRef.current = window.scrollY;
+  
+        // Prevent instant scroll restoration and delay it by 300ms
+        setTimeout(() => {
+          window.scrollTo(0, scrollPositionRef.current);
+        }, 300);
+      };
+  
+      // Add listener for back/forward navigation (popstate event)
+      window.addEventListener("popstate", handlePopState);
+  
+      return () => {
+        // Clean up the event listener when the component unmounts
+        window.removeEventListener("popstate", handlePopState);
+      };
+    }, [location]);
+  
+    return null; // No visual output, just logic
+  }
 
   return (
     <>
- <Header setErrors={setErrors} setScrolling={setScrolling}/>
+
+    <ScrollDelay/>
+ <Header setErrors={setErrors} errors={errors} setScrolling={setScrolling}/>
       <Messages errors={errors} setErrors={setErrors}/>
       <TransitionGroup component={null}>
        <CSSTransition key={location.key} classNames="fade" timeout={200}>
@@ -50,9 +76,10 @@ function App({ in: inProp }) {
             <Route path="/" element={<Indexes errors={errors} setErrors={setErrors}/>}/>
             <Route path="/Privatumo-politika" element={<Policy errors={errors} setErrors={setErrors}/>}/>
           </Routes>
-        </CSSTransition>
+
+        </CSSTransition><Footer />
       </TransitionGroup>
-      <Footer />
+      
     </>
   );
 }

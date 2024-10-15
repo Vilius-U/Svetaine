@@ -17,13 +17,11 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import logoImg from '../../logo311.png';
 
 
-function Header({ setErrors, setScrolling}) {
+function Header({ setErrors, errors, setScrolling}) {
 
  const navigate = useNavigate();
 
   function scrollMeet(scroll) {
-
-    console.log(window.location.pathname == '/');
 
     if (window.location.pathname == '/') {
       document.getElementById("checkbox").checked = false;
@@ -44,13 +42,12 @@ setTimeout(() => {
   }
 
   function shop() {
-    setErrors(["Atsiprašome, šiuo metu parduotuve yra gamyboje"]);
+    setErrors(prevErrors => [...prevErrors, { message: "Atsiprašome, šiuo metu elektronine parduotuvė yra gamyboje", isFadingOut: false, type: "error", title: "Klaida" }]);
   }
 
   function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
-    console.log("dark mode")
   }
 
   return (
@@ -65,10 +62,6 @@ setTimeout(() => {
               src={logoImg}
               alt='Instalika'
             />
-            <h1>
-              Instalika
-            </h1>
-
           </NavLink>
 
           <div className='options'>
@@ -80,7 +73,7 @@ setTimeout(() => {
               <button onClick={scrollMeet.bind(this, 'services')} className='button'>Paslaugos <hr /></button>
               <button onClick={scrollMeet.bind(this, 'contact')} className='button'>Susisiekime <hr /></button>
               <button onClick={scrollMeet.bind(this, 'contacts')} className='button'>Kontaktai <hr /></button>
-              <button onClick={shop} className='button shop'>Prekės <hr /></button>
+              <button onClick={shop} className='button shop'>Prekės</button>
             </div>
           </div>
 

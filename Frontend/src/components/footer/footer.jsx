@@ -6,6 +6,7 @@ import { FaCopy } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import logoImg from '../../logo311.png';
 
 
 function Footer() {
@@ -33,12 +34,14 @@ function Footer() {
   return (
     <>
       <footer className="footer">
-
+      <hr />
         <div className='container'>
-          <h1>MB "Instalika"</h1>
+<NavLink to="/">
+          <img src={logoImg} alt="" />
+</NavLink>
           <div>
             <NavLink to="/Privatumo-politika">Privatumo politika</NavLink>
-            <p>info@instalika.lt</p>
+            <p>info@instalika.eu</p>
             <p>+370 655 65525</p>
           </div>
         </div>
