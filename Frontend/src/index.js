@@ -7,6 +7,7 @@ import Policy from './pages/policy/policy';
 import Header from './components/header/header';
 import Messages from './components/popups/messages';
 import Footer from './components/footer/footer';
+import Follow from './components/mouseFollow/follow';
 import { ReactSession } from 'react-client-session';
 
 import './components/pageTransitions/pageTransitions.css'; // Import the CSS file here
@@ -70,6 +71,7 @@ function App({ in: inProp }) {
     <ScrollDelay/>
  <Header setErrors={setErrors} errors={errors} setScrolling={setScrolling}/>
       <Messages errors={errors} setErrors={setErrors}/>
+      <Follow />
       <TransitionGroup component={null}>
        <CSSTransition key={location.key} classNames="fade" timeout={200}>
           <Routes location={location}>

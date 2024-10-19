@@ -1,9 +1,4 @@
 import './footer.css'
-import { FaFacebookSquare } from "react-icons/fa";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { FaYoutube } from "react-icons/fa";
-import { FaCopy } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logoImg from '../../logo311.png';

@@ -23,9 +23,6 @@ function Messages({ errors, setErrors, added, setAdded }) {
   };
 
   useEffect(() => {
-
-    console.log(errors)
-
     clearTimeout(timeoutRef.current);
     if (errors.length > 0) {
       timeoutRef.current = setTimeout(() => {

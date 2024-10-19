@@ -1,11 +1,12 @@
 footer {
-    width: 1280px;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     text-align: center;
     color: #3B83FF;
-    padding-block: 20px;
+    background-color: white;
+    padding-bottom: 20px;
     transition: 0.3s;
     z-index: -4;
 }
@@ -13,9 +14,10 @@ footer hr {
     color: #3B83FF;
     background-color: #3B83FF;
     border: 0;
+    margin: auto;
     height: 2px;
     border-radius: 100px;
-    width: 100%;
+    width: 90%;
 }
 
 footer img {
