@@ -1,7 +1,15 @@
 .dark-mode {
-    background-color: rgb(29, 29, 29);
-    color: black;
+    transition: background-color 0.3s color 0.3s !important;
+    background-color: rgb(26, 26, 26) !important;
+    color: white !important;
+    .square {
+        background-color: rgb(26, 26, 26) !important;
+        }
+    a {
+        color: white !important;
+    }
 }
+
 
 header {
     display: flex;
@@ -21,6 +29,7 @@ header a {
 } */
 
 header .headerBg {
+    transition: 0.3s;
     width: 100%;
     background-color: white;
     box-shadow: 0px 0px 15px 15px rgba(59, 131, 255, 0.454);
@@ -80,8 +89,101 @@ header .header .options {
     position: relative;
     display: flex;
     justify-content: right;
-    width: 100%;
 }
+header .header .darkButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    font-size: 30px;
+
+}
+header .header .darkButton .darkIcon {
+    margin: auto;
+    transition: 0.3s ease;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    transition-delay: 150ms;
+    scale: 100%;
+    border-radius: 0%;
+}
+header .header .darkButton .sunIcon {
+    margin: auto;
+    transition: 0.3s ease;
+    scale: 0%;
+    color: rgb(26, 26, 26);
+    position: absolute;
+}
+header .header .darkButton.dark-mode{
+    .darkIcon {
+        scale: 40%;
+        transition-delay: 0ms;
+        transform: rotate(180deg);
+        color: rgb(255, 255, 255);
+        border-radius: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+    .sunIcon {
+    scale: 112%;
+    transition-delay: 150ms;
+    transform: rotate(180deg);
+    color: white;
+    background-color: transparent !important;
+    }
+    background-color: transparent !important;
+}
+/* @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(1800deg);
+        opacity: 0;
+    }
+}
+@keyframes spin2 {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(1800deg);
+        opacity: 1;
+    }
+} */
+
+/* @keyframes unspin {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-1800deg);
+        opacity: 0;
+    }
+}
+@keyframes unspin2 {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(-1800deg);
+        opacity: 1;
+    }
+} */
 
 header .header .buttons {
     display: flex;
@@ -144,7 +246,6 @@ header .header .logoVid {
 header .header .logoImg {
     position: relative;
     border-radius: 10px;
-
     width: 85px;
 }
 
@@ -155,7 +256,7 @@ header .header .select {
     cursor: pointer;
     width: 200px;
     height: 70px;
-    z-index: 2;
+    z-index: 1;
     background-color: white;
 }
 
@@ -176,7 +277,7 @@ header .header .select hr {
     transition: 0.3s;
     color: #3B83FF;
     background-color: #3B83FF;
-    border: 1px solid #3B83FF;
+    border: 0;
 }
 
 header .header:has(.select input:checked) .button {
@@ -214,7 +315,6 @@ header .header .select input:checked~hr:nth-child(4) {
 
     header .header .buttons {
         display: flex;
-        flex-wrap: wrap;
         gap: 50px;
         align-items: center;
         justify-content: right;
@@ -231,6 +331,13 @@ header .header .select input:checked~hr:nth-child(4) {
 
 @media only screen and (max-width: 780px) {
 
+    header .header .darkButton {
+        position: absolute;
+        margin: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
     header .header .options {
         position: relative;
         display: flex;
@@ -242,6 +349,83 @@ header .header .select input:checked~hr:nth-child(4) {
         display: flex;
         flex-direction: column;
         gap: 7px;
+    }
+
+    header .header .buttons .button:hover {
+        background-color: white;
+        color: #3B83FF;
+    }
+    header .header .buttons .shop:hover {
+        background-color: #3B83FF;
+        color: white;            
+    }
+    header .header .buttons .button:nth-child(1) {
+        transition-delay: 400ms;
+    }
+
+    header .header .buttons .button:nth-child(2) {
+        transition-delay: 300ms;
+    }
+
+    header .header .buttons .button:nth-child(3) {
+        transition-delay: 200ms;
+    }
+
+    header .header .buttons .button:nth-child(4) {
+        transition-delay: 100ms;
+    }
+
+    header .header:has(.select input:checked) .options {
+        transition-delay: 0ms;
+        width: 200px;
+
+        .select {
+            width: 100%;
+            transition-delay: 300ms;
+            border-radius: 0%;
+        }
+
+        .button:nth-child(1) {
+            transition-delay: 300ms;
+        }
+
+        .button:nth-child(2) {
+            transition-delay: 400ms;
+        }
+
+        .button:nth-child(3) {
+            transition-delay: 500ms;
+        }
+
+        .button:nth-child(4) {
+            transition-delay: 600ms;
+        }
+    }
+
+    header .header .options {
+        transition: 0.3s;
+        transition-delay: 750ms;
+        right: 15px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 70px;
+    }
+
+    header .header .select {
+        transition: 0.15s;
+        justify-content: center;
+        border-radius: 100%;
+        width: 70px;
+        height: 70px;
+        background-color: #3B83FF;
+        transition-delay: 600ms;
+        /* Make sure this rule also has the delay */
+    }
+
+    header .header .options .select hr {
+        color: white;
+        background-color: white;
     }
 
     header .header .buttons {
@@ -276,9 +460,6 @@ header .header .select input:checked~hr:nth-child(4) {
 
 
     header .header .buttons .button:hover {
-        background-color: #3B83FF;
-        color: white;
-
         hr {
             width: 0%;
         }
@@ -292,7 +473,7 @@ header .header .select input:checked~hr:nth-child(4) {
         color: white;
         /* background-color: #FFD527; */
     }
-
+}
     @media only screen and (max-width: 660px) {
         header {
             position: fixed;
@@ -304,86 +485,5 @@ header .header .select input:checked~hr:nth-child(4) {
             z-index: 5;
             transition: 0.3s ease-in-out;
         }
-
-        header .headerBg {
-        }
-
-        header .header .buttons .button:hover {
-            background-color: white;
-            color: #3B83FF;
-        }
-        header .header .buttons .shop:hover {
-            background-color: #3B83FF;
-            color: white;            
-        }
-        header .header .buttons .button:nth-child(1) {
-            transition-delay: 400ms;
-        }
-
-        header .header .buttons .button:nth-child(2) {
-            transition-delay: 300ms;
-        }
-
-        header .header .buttons .button:nth-child(3) {
-            transition-delay: 200ms;
-        }
-
-        header .header .buttons .button:nth-child(4) {
-            transition-delay: 100ms;
-        }
-
-        header .header:has(.select input:checked) .options {
-            transition-delay: 0ms;
-            width: 200px;
-
-            .select {
-                width: 100%;
-                transition-delay: 300ms;
-                border-radius: 0%;
-            }
-
-            .button:nth-child(1) {
-                transition-delay: 300ms;
-            }
-
-            .button:nth-child(2) {
-                transition-delay: 400ms;
-            }
-
-            .button:nth-child(3) {
-                transition-delay: 500ms;
-            }
-
-            .button:nth-child(4) {
-                transition-delay: 600ms;
-            }
-        }
-
-        header .header .options {
-            transition: 0.3s;
-            transition-delay: 750ms;
-            right: 15px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            width: 70px;
-        }
-
-        header .header .select {
-            transition: 0.15s;
-            justify-content: center;
-            border-radius: 100%;
-            width: 70px;
-            height: 70px;
-            background-color: #3B83FF;
-            transition-delay: 600ms;
-            /* Make sure this rule also has the delay */
-        }
-
-        header .header .options .select hr {
-            color: white;
-            background-color: white;
-        }
     }
 
-}

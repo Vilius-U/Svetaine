@@ -48,7 +48,7 @@ import { PiCity } from "react-icons/pi";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsInfoCircleFill } from "react-icons/bs";
 
-function Indexes({ setErrors, loading, loading2 }) {
+function Indexes({ setErrors, loading, loading2, darkMode }) {
   const [viewed, setViewed] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0); // Initialize scroll position state with 0
   const contentRef = useRef(null);
@@ -271,7 +271,7 @@ function Indexes({ setErrors, loading, loading2 }) {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
       {/* <div className='locations'>
         <div className={`location ${isVisible ? "viewed" : ""}`}><div className='container'><p className='word'>Paslaugos</p></div></div>
         <div className={`location ${isVisible2 ? "viewed" : ""}`}><div className='container'><p className='word'>Susisiekime</p></div></div>
@@ -303,7 +303,7 @@ function Indexes({ setErrors, loading, loading2 }) {
 
         <article id='services'>
           <div className='services'>
-            <h1>Mūsų paslaugos</h1>
+            <h1 className={`topTitle ${darkMode ? 'dark-mode' : ''}`}>Mūsų paslaugos</h1>
             <hr />
           </div>
           <div className='icons'>
@@ -315,9 +315,7 @@ function Indexes({ setErrors, loading, loading2 }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[0].id)}
             >
 
-              <div className='solar card'
-
-              >
+              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
                 <div className={`front ${cards[0].swiped ? 'swipedFront' : ''}`}>
                   <div className='iconContainer'>
                     <div className='icon'>
@@ -336,7 +334,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     <li>Valstybinės paramos galimybės</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}`}></div>
+                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
                 <div className={`back ${cards[0].swiped ? 'swipedBack' : ''}`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
@@ -355,7 +353,7 @@ function Indexes({ setErrors, loading, loading2 }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[1].id)}
               className='container hidden'>
 
-              <div className='solar card'>
+              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
                 <div className={`front ${cards[1].swiped ? 'swipedFront' : ''}`}>
                   <div className='iconContainer'>
                     <div className='icon'>
@@ -374,7 +372,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     <li>Pavojaus signalai</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[1].swiped ? 'swipedDesign' : ''}`}></div>
+                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
                 <div className={`back ${cards[1].swiped ? 'swipedBack' : ''}`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
@@ -393,7 +391,7 @@ function Indexes({ setErrors, loading, loading2 }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[2].id)}
               className='container hidden'>
 
-              <div className='solar card'>
+              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
                 <div className={`front ${cards[2].swiped ? 'swipedFront' : ''}`}>
                   <div className='iconContainer'>
                     <div className='icon'>
@@ -412,7 +410,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     <li>Balsu valdomos sistemos</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[2].swiped ? 'swipedDesign' : ''}`}></div>
+                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
                 <div className={`back ${cards[2].swiped ? 'swipedBack' : ''}`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
@@ -432,7 +430,7 @@ function Indexes({ setErrors, loading, loading2 }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[3].id)}
               className='container hidden'>
 
-              <div className='solar card'>
+              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
                 <div className={`front ${cards[3].swiped ? 'swipedFront' : ''}`}>
                   <div className='iconContainer'>
                     <div className='icon'>
@@ -451,7 +449,7 @@ function Indexes({ setErrors, loading, loading2 }) {
                     <li>Teisingas montavimas</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[3].swiped ? 'swipedDesign' : ''}`}></div>
+                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
                 <div className={`back ${cards[3].swiped ? 'swipedBack' : ''}`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
@@ -505,7 +503,7 @@ function Indexes({ setErrors, loading, loading2 }) {
         <div id='contacts' className='information'>
 
           <div className='title'>
-            <h1>Rekvizitai</h1>
+            <h1 className={`topTitle ${darkMode ? 'dark-mode' : ''}`}>Rekvizitai</h1>
             <hr />
           </div>
 
@@ -557,7 +555,7 @@ function Indexes({ setErrors, loading, loading2 }) {
         <div className='workflow'>
           <div  className='workflowTitle'>
             <div className='title'>
-              <h1>Darbo eiga</h1>
+              <h1 className={`topTitle ${darkMode ? 'dark-mode' : ''}`}>Darbo eiga</h1>
               <hr />
             </div>
 

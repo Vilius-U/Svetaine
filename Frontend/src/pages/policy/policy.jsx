@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './policy.css'
 
-function Indexes({ setErrors, loading, loading2 }) {
+function Indexes({ setErrors, loading, loading2, darkMode }) {
 
     const [scrollPosition, setScrollPosition] = useState(0); // Initialize scroll position state with 0
     const contentRef = useRef(null);
@@ -21,8 +21,8 @@ function Indexes({ setErrors, loading, loading2 }) {
 
 
     return (
-        <div className="policy">
-            <div className='container'>
+        <div className={`policy ${darkMode ? 'dark-mode' : ''}`}>
+            <div className={`container`}>
                 <h1>Privatumo politika</h1>
                 <h2>
                     <div className='number'> 1.</div> Bendra informacija

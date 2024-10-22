@@ -3,6 +3,10 @@
     height: 100%;
     margin: auto;
 }
+.policy.dark-mode {
+    color: white !important;
+    background-color: transparent !important;
+}
 .policy .container {
     padding-inline: 15px;
 }

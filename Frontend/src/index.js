@@ -14,14 +14,22 @@ import './components/pageTransitions/pageTransitions.css'; // Import the CSS fil
 
 function App({ in: inProp }) {
   ReactSession.setStoreType('localStorage');
-
  
   const [errors, setErrors] = useState([]);
   const [scrolling, setScrolling] = useState(false);
+
+  const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
 
   const duration = 300;
   const navigationType = useNavigationType();
+
+  useEffect(() => {
+    // Scroll to top only if the navigation type is not 'POP'
+    if (ReactSession.get('darkMode')) {
+      setDarkMode(true);
+    }
+  }, []);
 
   useEffect(() => {
     // Scroll to top only if the navigation type is not 'POP'
@@ -69,14 +77,14 @@ function App({ in: inProp }) {
     <>
 
     <ScrollDelay/>
- <Header setErrors={setErrors} errors={errors} setScrolling={setScrolling}/>
+ <Header setDarkMode={setDarkMode} darkModes={darkMode} setErrors={setErrors} errors={errors} setScrolling={setScrolling}/>
       <Messages errors={errors} setErrors={setErrors}/>
-      <Follow />
+      <Follow darkMode={darkMode} />
       <TransitionGroup component={null}>
        <CSSTransition key={location.key} classNames="fade" timeout={200}>
           <Routes location={location}>
-            <Route path="/" element={<Indexes errors={errors} setErrors={setErrors}/>}/>
-            <Route path="/Privatumo-politika" element={<Policy errors={errors} setErrors={setErrors}/>}/>
+            <Route path="/" element={<Indexes darkMode={darkMode} errors={errors} setErrors={setErrors}/>}/>
+            <Route path="/Privatumo-politika" element={<Policy darkMode={darkMode} errors={errors} setErrors={setErrors}/>}/>
           </Routes>
 
         </CSSTransition><Footer />

@@ -7,7 +7,8 @@ import { CiShoppingCart } from "react-icons/ci";
 import { FaCircleInfo } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa6";
 import { IoExitOutline, IoMail } from "react-icons/io5";
-import { FaMoon } from "react-icons/fa";
+import { IoSunny } from "react-icons/io5";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
@@ -17,9 +18,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import logoImg from '../../logo311.png';
 
 
-function Header({ setErrors, errors, setScrolling}) {
+function Header({ setErrors, errors, setScrolling, setDarkMode, darkModes }) {
 
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function scrollMeet(scroll) {
 
@@ -31,12 +32,12 @@ function Header({ setErrors, errors, setScrolling}) {
     } else {
       setScrolling(true);
       navigate('/');
-setTimeout(() => {
-   document.getElementById("checkbox").checked = false;
-      const meet = document.getElementById(scroll);
-      meet.scrollIntoView({ behavior: 'smooth' });
-      setScrolling(false);
-}, 300);
+      setTimeout(() => {
+        document.getElementById("checkbox").checked = false;
+        const meet = document.getElementById(scroll);
+        meet.scrollIntoView({ behavior: 'smooth' });
+        setScrolling(false);
+      }, 300);
       return
     }
   }
@@ -45,9 +46,44 @@ setTimeout(() => {
     setErrors(prevErrors => [...prevErrors, { message: "Atsiprašome, šiuo metu elektronine parduotuvė yra gamyboje", isFadingOut: false, type: "error", title: "Klaida" }]);
   }
 
+  useEffect(() => {
+    if (ReactSession.get('darkMode')) {
+      setTimeout(() => {
+        darkMode();
+      }, 10);
+      console.log(ReactSession.get('darkMode'));
+    }
+  }, []);
+
+  function toggleDarkMode() {
+    setDarkMode(!darkModes);
+    ReactSession.set('darkMode', !ReactSession.get('darkMode'));
+    console.log(darkModes);
+    darkMode();
+
+  }
+
   function darkMode() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
+    console.log(ReactSession.get('darkMode'));
+    var elements = [
+      document.getElementsByClassName("darkButton"),
+      document.getElementsByClassName("headerBg"),
+      document.getElementsByClassName("followBackground"),
+      document.getElementsByClassName("follow"),
+      document.getElementsByClassName("footer")
+    ];
+
+    // Loop through each collection and toggle the class for each element
+    elements.forEach(function (collection) {
+      for (var i = 0; i < collection.length; i++) {
+        collection[i].classList.toggle("dark-mode");
+        if (i === 0 && !collection[i].classList.contains("dark-mode")) {
+          collection[i].classList.add("light-mode");
+      } else {
+        collection[i].classList.remove("light-mode");
+      }
+      }
+    });
   }
 
   return (
@@ -63,6 +99,7 @@ setTimeout(() => {
               alt='Instalika'
             />
           </NavLink>
+          <button onClick={toggleDarkMode} className='darkButton light-mode'><IoSunny className='sunIcon'/><BsFillMoonStarsFill className='darkIcon'/></button>
 
           <div className='options'>
             <div className="select">
@@ -76,7 +113,6 @@ setTimeout(() => {
               <button onClick={shop} className='button shop'>Prekės</button>
             </div>
           </div>
-
         </div>
       </div>
     </header>

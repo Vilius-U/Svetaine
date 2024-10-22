@@ -24,15 +24,13 @@ function Footer() {
       });
   }
 
-
-
   return (
     <>
       <footer className="footer">
       <hr />
         <div className='container'>
 <NavLink to="/">
-          <img src={logoImg} alt="" />
+          <img className='logoImg' src={logoImg} alt="" />
 </NavLink>
           <div>
             <NavLink to="/Privatumo-politika">Privatumo politika</NavLink>

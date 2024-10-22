@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./follow.css";
 
-const Follow = () => {
+function Follow({ darkMode }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [squares, setSquares] = useState([]);
 
@@ -46,19 +46,20 @@ const Follow = () => {
 
   return (
     <div className="follow">
-          <div className="background"></div>
+      <div className="followBackground"></div>
       {/* Circle that follows the mouse */}
-            <div className='squares'>
+      <div className={`squares ${darkMode ? 'dark-mode' : ''}`}>
+        <div
+          className="circle"
+          style={{
+            transform: `translate(${position.x - 25}px, ${position.y - 25}px)`,
+          }}
+        ></div>
         {squares.map((_, index) => (
-          <div key={index} className="square"></div>
+          <div key={index} className={`square ${darkMode ? 'dark-mode' : ''}`}></div>
         ))}
       </div>
-      <div
-        className="circle"
-        style={{
-          transform: `translate(${position.x - 25}px, ${position.y - 25}px)`,
-        }}
-      ></div>
+
     </div>
   );
 };
