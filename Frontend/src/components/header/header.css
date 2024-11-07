@@ -143,48 +143,6 @@ header .header .darkButton.dark-mode{
     }
     background-color: transparent !important;
 }
-/* @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(1800deg);
-        opacity: 0;
-    }
-}
-@keyframes spin2 {
-    0% {
-        transform: rotate(0deg);
-        opacity: 0;
-    }
-    100% {
-        transform: rotate(1800deg);
-        opacity: 1;
-    }
-} */
-
-/* @keyframes unspin {
-    0% {
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(-1800deg);
-        opacity: 0;
-    }
-}
-@keyframes unspin2 {
-    0% {
-        transform: rotate(0deg);
-        opacity: 0;
-    }
-    100% {
-        transform: rotate(-1800deg);
-        opacity: 1;
-    }
-} */
-
 header .header .buttons {
     display: flex;
     gap: 100px;
@@ -205,7 +163,10 @@ header .header .buttons .button {
     font-size: 20px;
     cursor: pointer;
 }
-
+header .header .buttons .button.dark-mode {
+    color: #3B83FF !important;
+    background-color: transparent !important;
+}
 header .header .buttons .shop {
     font-weight: 700;
     background-color: #3B83FF;
@@ -414,6 +375,7 @@ header .header .select input:checked~hr:nth-child(4) {
 
     header .header .select {
         transition: 0.15s;
+        z-index: 2;
         justify-content: center;
         border-radius: 100%;
         width: 70px;
@@ -444,13 +406,12 @@ header .header .select input:checked~hr:nth-child(4) {
         opacity: 0;
         background-color: rgb(255, 255, 255);
         transform: translateY(-80px);
-    }
-
-
-    header .header .buttons .button {
         width: 100%;
         height: 70px;
         transition: 0.3s;
+    }
+    header .header .buttons .button.dark-mode {
+        background-color: rgb(26, 26, 26) !important;
     }
 
     header .header .buttons .button hr {

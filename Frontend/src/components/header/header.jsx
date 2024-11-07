@@ -107,10 +107,10 @@ function Header({ setErrors, errors, setScrolling, setDarkMode, darkModes }) {
               <hr /><hr /><hr />
             </div>
             <div className='buttons'>
-              <button onClick={scrollMeet.bind(this, 'services')} className='button'>Paslaugos <hr /></button>
-              <button onClick={scrollMeet.bind(this, 'contact')} className='button'>Susisiekime <hr /></button>
-              <button onClick={scrollMeet.bind(this, 'contacts')} className='button'>Kontaktai <hr /></button>
-              <button onClick={shop} className='button shop'>Prekės</button>
+              <button onClick={scrollMeet.bind(this, 'services')} className={`button ${darkModes ? 'dark-mode' : ""}`}>Paslaugos <hr /></button>
+              <button onClick={scrollMeet.bind(this, 'contact')} className={`button ${darkModes ? 'dark-mode' : ""}`}>Susisiekime <hr /></button>
+              <button onClick={scrollMeet.bind(this, 'contacts')} className={`button ${darkModes ? 'dark-mode' : ""}`}>Kontaktai <hr /></button>
+              <button onClick={shop} className={`button shop`}>Prekės</button>
             </div>
           </div>
         </div>

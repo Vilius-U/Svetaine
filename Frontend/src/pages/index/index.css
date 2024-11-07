@@ -214,17 +214,17 @@ main .icons {
     margin: auto;
 }
 
-main .icons .container {
+/* main .icons .container {
     transform-style: preserve-3d;
     transform-origin: center;
-}
+} */
 
 main .icons .card {
     position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transition: all 3s ease;
+    transition: 3s;
 }
 
 main .icons .card.dark-mode {
@@ -244,7 +244,7 @@ main .icons .card .front {
     text-align: center;
     padding: 10px 0px;
     transform: rotateY(0deg) translateZ(60px);
-    transition: transform 3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 main .icons .card .front.dark-mode {
     color: white !important;
@@ -253,7 +253,7 @@ main .icons .card .front.dark-mode {
 main .icons .card .design {
     top: 0;
     left: 0;
-    transition: transform 3s ease, background-color 0.3s ease;
+    transition: background-color 0.3s ease;
     position: absolute;
     transform-style: preserve-3d;
     pointer-events: none;
@@ -264,7 +264,7 @@ main .icons .card .design {
     border-top: #3B83FF 5px solid;
     background-color: white;
     box-shadow: 0px 0px 7px 7px rgb(0, 0, 0, 0.2);
-    transform: rotateY(0deg) translateZ(1px);
+    transform: rotateY(0deg) translateZ(0px);
 }
 
 main .icons .card .design.dark-mode {
@@ -277,7 +277,7 @@ main .icons .card .back {
     bottom: 0;
     transform-style: preserve-3d;
     transform-origin: center;
-    transform: rotateY(-180deg) translateZ(0px);
+    transform: rotateY(-180deg) translateZ(60px);
     position: absolute;
     height: 100%;
     width: 100%;
@@ -288,7 +288,6 @@ main .icons .card .back {
     text-align: center;
     pointer-events: none;
     border-radius: 15px;
-    transition: all 3s ease;
 }
 
 main .icons .card .back hr {
@@ -318,8 +317,10 @@ main .icons .card .back .photos img {
         height: 120px;
     }
 }
-
-main .icons .container:hover .front {
+main .icons .container:hover .card{
+    transform: rotateY(180deg);
+}
+/* main .icons .container:hover .front {
     transform: rotateY(180deg) translateZ(60px);
 }
 
@@ -329,7 +330,7 @@ main .icons .container:hover .design {
 
 main .icons .container:hover .back {
     transform: rotateY(0deg) translateZ(100px);
-}
+} */
 
 
 
@@ -902,7 +903,7 @@ main .workflow .container .texts .number {
         grid-template-columns: 1fr;
     }
 
-    main .icons .container:hover .front {
+    /* main .icons .container:hover .front {
         transform: rotateY(0deg) translateZ(60px);
     }
 
@@ -912,19 +913,21 @@ main .workflow .container .texts .number {
 
     main .icons .container:hover .back {
         transform: rotateY(-180deg) translateZ(0px);
+    } */
+    main .icons .container:hover .card {
+        transform: rotateY(0deg);
     }
-
     main .icons .container .swipedFront {
-        transform: rotateY(180deg) translateZ(60px);
+        transform: rotateY(180deg) !important;
     }
-
+/* 
     main .icons .container .swipedDesign {
-        transform: rotateY(180deg) translateZ(0px);
+        transform: rotateY(180deg) translateZ(1px);
     }
 
     main .icons .container .swipedBack {
         transform: rotateY(0deg) translateZ(100px);
-    }
+    } */
 
     main article {
         height: 2040px;

@@ -315,8 +315,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[0].id)}
             >
 
-              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
-                <div className={`front ${cards[0].swiped ? 'swipedFront' : ''}`}>
+              <div className={`solar card ${cards[0].swiped ? 'swipedFront' : ''} ${darkMode ? 'dark-mode' : ''}`}>
+                <div className={`front`}>
                   <div className='iconContainer'>
                     <div className='icon'>
                       <FaSolarPanel />
@@ -334,8 +334,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
                     <li>Valstybinės paramos galimybės</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
-                <div className={`back ${cards[0].swiped ? 'swipedBack' : ''}`}>
+                <div className={`design ${darkMode ? 'dark-mode' : ''}`}></div>
+                <div className={`back`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
                   <div className='photos'>
@@ -353,8 +353,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[1].id)}
               className='container hidden'>
 
-              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
-                <div className={`front ${cards[1].swiped ? 'swipedFront' : ''}`}>
+              <div className={`solar card ${cards[1].swiped ? 'swipedFront' : ''} ${darkMode ? 'dark-mode' : ''}`}>
+                <div className={`front`}>
                   <div className='iconContainer'>
                     <div className='icon'>
                       <GiCctvCamera />
@@ -372,8 +372,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
                     <li>Pavojaus signalai</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
-                <div className={`back ${cards[1].swiped ? 'swipedBack' : ''}`}>
+                <div className={`design ${darkMode ? 'dark-mode' : ''}`}></div>
+                <div className={`back`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
                   <div className='photos'>
@@ -391,8 +391,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[2].id)}
               className='container hidden'>
 
-              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
-                <div className={`front ${cards[2].swiped ? 'swipedFront' : ''}`}>
+              <div className={`solar card ${cards[2].swiped ? 'swipedFront' : ''} ${darkMode ? 'dark-mode' : ''}`}>
+                <div className={`front`}>
                   <div className='iconContainer'>
                     <div className='icon'>
                       <IoHomeOutline />
@@ -410,8 +410,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
                     <li>Balsu valdomos sistemos</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
-                <div className={`back ${cards[2].swiped ? 'swipedBack' : ''}`}>
+                <div className={`design ${darkMode ? 'dark-mode' : ''}`}></div>
+                <div className={`back`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
                   <div className='photos'>
@@ -430,8 +430,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
               onTouchEnd={(e) => handleTouchEnd(e, cards[3].id)}
               className='container hidden'>
 
-              <div className={`solar card ${darkMode ? 'dark-mode' : ''}`}>
-                <div className={`front ${cards[3].swiped ? 'swipedFront' : ''}`}>
+              <div className={`solar card ${cards[3].swiped ? 'swipedFront' : ''} ${darkMode ? 'dark-mode' : ''}`}>
+                <div className={`front`}>
                   <div className='iconContainer'>
                     <div className='icon'>
                       <BsLightningCharge />
@@ -449,8 +449,8 @@ function Indexes({ setErrors, loading, loading2, darkMode }) {
                     <li>Teisingas montavimas</li>
                   </ul>
                 </div>
-                <div className={`design ${cards[0].swiped ? 'swipedDesign' : ''}${darkMode ? 'dark-mode' : ''}`}></div>
-                <div className={`back ${cards[3].swiped ? 'swipedBack' : ''}`}>
+                <div className={`design ${darkMode ? 'dark-mode' : ''}`}></div>
+                <div className={`back`}>
                   <h2>Populiariausi gamintojai</h2>
                   <hr />
                   <div className='photos'>

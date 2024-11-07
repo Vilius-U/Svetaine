@@ -24,10 +24,13 @@ router.post('/mail' , (req, res, next) => {
   checkNumber = RegExp(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/);
 
   if (!req.body.name || !req.body.email || !req.body.number || !req.body.message || !checkEmail.test(req.body.email) || !checkNumber.test(req.body.number)) {
-    res.status(400);
-    return;
+    console.log('error');
+    res.status(400).json({message: "Nepavyko išsiusti užklausos, bandykite dar kartą vėliau"});
+  } else {
+    console.log('success');
+    res.status(200).json({message: "Užklausa sėkmingai išsiusta! Susiesiksime su jumis artimiausiu"});
   }
-
+return
 ejs.renderFile('./views/validateEmail.ejs', {name: req.body.name, mail: req.body.email, number: req.body.number, message: req.body.message}, function(err, template) {
   if (err) {
     console.log(err);
